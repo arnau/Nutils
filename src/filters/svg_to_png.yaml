@@ -1,0 +1,15 @@
+title: svg_to_png
+version: 0.2.0
+description: |
+              This filter convert a SVG input to PNG.
+              Tested in Mac OS X 10.6 with Batik 1.7.
+
+parameters:
+  width: The width of the result PNG. Mask for the `KEY_WIDTH` key.
+  height: The height of the result PNG. Mask for the `KEY_HEIGHT` key.
+  background_color: The background color of the result PNG. Mask for the `KEY_BACKGROUND_COLOR` key.
+  dpi: This parameter lets you use the pixel to millimeter conversion factor. This factor is used to determine how units are converted into pixels. Mask for the `KEY_PIXEL_TO_MM` key.
+
+dependences:
+  - RJB <http://rjb.rubyforge.org/>.
+  - Batik <http://xmlgraphics.apache.org/batik/>. It must be in the Java classpath.

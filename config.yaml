@@ -1,0 +1,11 @@
+text_extensions: [ 'css', 'erb', 'haml', 'htm', 'html', 'js', 'less', 'markdown', 'md', 'php', 'rb', 'sass', 'scss', 'txt', 'xhtml', 'xml' ]
+output_dir: output
+index_filenames: [ 'index.html' ]
+enable_output_diff: false
+data_sources:
+  -
+    type: filesystem_customizable
+    config:
+      source_dir: ["src"]
+      layout_dir: ["layouts"]
+      allow_periods_in_identifiers: true
