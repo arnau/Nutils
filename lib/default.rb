@@ -1,3 +1,3 @@
 $:.unshift File.dirname(__FILE__)
 
-require "filters/svg2png"
+require "nutils/filters/svg2png"

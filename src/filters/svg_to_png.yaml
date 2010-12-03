@@ -1,9 +1,13 @@
 title: svg_to_png
 version: 0.2.0
+type: filter
 description: |
-              This filter convert a SVG input to PNG.
-              Tested in Mac OS X 10.6 with Batik 1.7.
-
+              This filter converts an SVG to PNG.
+              
+              Tested in Mac OS X 10.6, Ruby 1.8.7 and with Batik 1.7.
+contributors:
+  - Arnau Siches <arnau.siches@gmail.com>
+  - Choan Gálvez
 parameters:
   width: The width of the result PNG. Mask for the `KEY_WIDTH` key.
   height: The height of the result PNG. Mask for the `KEY_HEIGHT` key.

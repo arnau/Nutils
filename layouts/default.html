@@ -1,20 +1,8 @@
-# <%= @item[:title] %>
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="utf-8">
+  <title><%= @item[:title] %></title>
+  <h1><%= @item[:title] %></h1>
 
-<%= yield %>
-
-## Filters
-
-
-
-***
-
-## Data Sources
-
-
-### filesystem_customizable
-
-This data source allows to configure 
-
-**Version**: 1.0.0
-
-***
+  <%= yield %>
+</html>

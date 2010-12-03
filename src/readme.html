@@ -1,0 +1,44 @@
+---
+title: Nutils Readme
+---
+<p>A set of utilities for Nanoc3.</p>
+
+<%
+  filters = @items.select { |i| i[:type] == "filter" }
+  data_sources = @items.select { |i| i[:type] == "data_source" }
+%>
+
+<% unless filters.nil? %>
+  <h2>Filters</h2>
+  <% filters.each do |filter| %>
+    <h3><%= filter[:title] %> (<%= filter[:version] %>)</h3>
+    <%= filter[:description] %>
+    <% unless filter[:parameters].nil? %>
+      <h4>Parameters</h4>
+      <dl>
+      <% filter[:parameters].each do |name, description| %>
+        <dt>`<%= name %>`</dt>
+        <dd><%= description %></dd>
+      <% end%>
+      </dl>
+    <% end%>
+    <hr>
+  <% end %>
+<% end %>
+
+<% unless data_sources.nil? %>
+  <h2>Data Sources</h2>
+  <% data_sources.each do |data_source| %>
+    <h3><%= data_source[:title] %></h3>
+    <%= data_source[:description] %>
+  <% end %>
+<% end %>
+
+<!--     ### filesystem_customizable
+
+This data source allows to configure 
+
+**Version**: 1.0.0
+
+*** -->
+
