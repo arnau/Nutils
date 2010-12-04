@@ -3,8 +3,6 @@ module Nutils
 
     class Beautify < Nanoc3::Filter
 
-      require "htmlbeautifier/beautifier"
-
       identifier :beautify
       type :text
 
@@ -14,6 +12,7 @@ module Nutils
       #
       # @return [String] The retabed HTML.
       def run(content, params = {})
+        require "htmlbeautifier/beautifier"
         buffer = ""
         ::HtmlBeautifier::Beautifier.new(buffer).scan(content)
         buffer
