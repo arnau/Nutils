@@ -4,7 +4,7 @@ type: filter
 description: |
               This filter converts an SVG to PNG.
               
-              Tested in Mac OS X 10.6, Ruby 1.8.7 and with Batik 1.7.
+              Tested in Mac OS X 10.6, Ruby 1.8.7, Nanoc 3.1.6 and with Batik 1.7.
 contributors:
   - Arnau Siches <arnau.siches@gmail.com>
   - Choan Gálvez
