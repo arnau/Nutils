@@ -3,6 +3,7 @@
 compile '/readme/' do
   filter :erb
   layout 'default'
+  filter :beautify
 end
 
 route '/readme/' do

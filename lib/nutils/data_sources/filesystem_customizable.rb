@@ -4,7 +4,7 @@ module Nanoc3::DataSources
 
     def setup
       # Create directories
-      (config[:source_dir] + config[:layout_dir]).each { |dir| FileUtils.mkdir_p(dir) }
+      (config[:source_dir] + config[:layout_dir]).each { |dir| FileUtils.mkdir_p dir }
     end
     def items
       config[:source_dir].map do |dir|
