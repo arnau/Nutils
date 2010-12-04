@@ -1,0 +1,13 @@
+title: beautify
+version: 0.5.0
+type: filter
+description: |
+              This filter retabs HTML code.
+              
+              Tested in Mac OS X 10.6, Ruby 1.8.7 and Nanoc 3.1.6.
+contributors:
+  - Arnau Siches <arnau.siches@gmail.com>
+  - Choan Gálvez
+
+dependences:
+  - htmlbeautifier <http://github.com/threedaymonk/htmlbeautifier>.
