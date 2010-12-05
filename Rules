@@ -2,12 +2,11 @@
 
 compile '/readme/' do
   filter :erb
-  layout 'default'
-  filter :beautify
+  layout 'readme'
 end
 
 route '/readme/' do
-  item.identifier.chop + '.html'
+  item.identifier.chop.upcase
 end
 
 
