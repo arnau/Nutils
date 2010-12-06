@@ -21,25 +21,45 @@ module Nutils
         super
       end
 
-      # Converts an hexadecimal number with the format #FC0 or #FFCC00 to its integer representation.
-
-      # @param [String] The Hexadecimal number.
-
-      # @return [Integer].
+      # Converts an hexadecimal number with the format +#FC0+ or +#FFCC00+ to its integer representation.
+      # 
+      # @param [String] input The hexadecimal number.
+      # 
+      # @return [Integer] The corresponding integer.
       def hex2int(input)
         hexnum = input.delete("#")
         raise ArgumentError, "Got #{input}. Hexadecimal number must have the form #FC0 or #FFCC00." unless (hexnum.length == 3 or hexnum.length == 6)
         (hexnum.length == 3) ? hexnum.map { |i| i + i }.to_s.hex : hexnum.hex
       end
 
+      # Runs the content through [Batik](http://xmlgraphics.apache.org/batik/).
+      #
+      # @param [String] content The content to filter.
+      #
+      # @option params [String] :background_color (nil) The background color with the 
+      #   form +#FFCC00+ or +FC0+ of the result. Mask for the 
+      #   +KEY_BACKGROUND_COLOR+ key.
+      #
+      # @option params [Integer] :dpi (72) This parameter lets you use the pixel
+      #   to millimeter conversion factor.
+      #   This factor is used to determine how units are converted into pixels. 
+      #   Mask for the +KEY_PIXEL_TO_MM+ key.
+      #
+      # @option params [Integer] :heigth (nil) The height of the result. Mask for the
+      #   +KEY_HEIGHT+ key.
+      #
+      # @option params [Integer] :width (nil) The width of the result. Mask for the
+      #   +KEY_WIDTH+ key.
+      #
+      # @return [String] The filtered content.
       def run(content, params = {})
         t = @pngTranscoder.new
 
         opts = {
-          :width => nil,
-          :height => nil,
           :background_color => nil,
           :dpi => 72,
+          :height => nil,
+          :width => nil,
         }.merge(params)
 
         t.addTranscodingHint(@pngTranscoder.KEY_WIDTH, @float.new(opts[:width])) if opts[:width]
