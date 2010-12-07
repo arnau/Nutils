@@ -12,18 +12,20 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = ">= 1.8.7"
   spec.author = "Arnau Siches"
   spec.email = "arnau.siches@gmail.com"
-  spec.homepage = "http://github.com/arnau/nutils/"
+  spec.homepage = "http://github.com/arnau/Nutils/"
   
   # spec.test_file = "tests/test_nutils.rb"
 
   spec.files = Dir["lib/nutils/**/*"] + ["lib/nutils.rb"]
-  # spec.require_paths = ["lib/nutils"]
 
   spec.has_rdoc = "yard"
-  spec.rdoc_options = ["--main", "README"]
-  spec.extra_rdoc_files = ["README"]
+  spec.rdoc_options = ["--main", "README.md"]
+  spec.extra_rdoc_files = ["README.md"]
 
   spec.add_dependency "nanoc3", ">= 3.1.2"
   spec.add_dependency "rjb", ">= 1.2.9"
+  spec.add_dependency "yui-compressor", ">= 0.9.1"
+  spec.add_dependency "htmlbeautifier"
+  spec.add_dependency "sprockets"
 
 end

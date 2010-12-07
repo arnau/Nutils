@@ -2,3 +2,4 @@
 my/
 tmp/
 output/
+*.gem
