@@ -1,20 +1,40 @@
-module Nanoc3::DataSources
-  class FilesystemCustomizable < Nanoc3::DataSources::FilesystemUnified
-    identifier :filesystem_customizable
+module Nutils
+  module DataSources
 
-    def setup
-      # Create directories
-      (config[:source_dir] + config[:layout_dir]).each { |dir| FileUtils.mkdir_p dir }
-    end
-    def items
-      config[:source_dir].map do |dir|
-        load_objects(dir, 'item', Nanoc3::Item)
-      end.flatten
-    end
-    def layouts
-      config[:layout_dir].map do |dir|
-        load_objects(dir, 'layout', Nanoc3::Layout)
-      end.flatten
+    # @author Arnau Siches
+    #
+    # @version 1.0.0
+    #
+    # The +filesystem_customizable+ data source allows an array for source 
+    # directories and for layout directories.
+    # Inherits from +Nanoc3::DataSources::FilesystemUnified+fromstores.
+    #
+    # @example config.yaml excerpt
+    #   data_sources:
+    #     -
+    #       type: filesystem_customizable
+    #       config:
+    #         source_dir: ["src"]
+    #         layout_dir: ["layouts", "other_layouts"]
+    #
+    # @see Nanoc3::DataSources::FilesystemUnified
+    class FilesystemCustomizable < Nanoc3::DataSources::FilesystemUnified
+      identifier :filesystem_customizable
+
+      def setup
+        # Create directories
+        (config[:source_dir] + config[:layout_dir]).each { |dir| FileUtils.mkdir_p dir }
+      end
+      def items
+        config[:source_dir].map do |dir|
+          load_objects(dir, 'item', Nanoc3::Item)
+        end.flatten
+      end
+      def layouts
+        config[:layout_dir].map do |dir|
+          load_objects(dir, 'layout', Nanoc3::Layout)
+        end.flatten
+      end
     end
   end
 end

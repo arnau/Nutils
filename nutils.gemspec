@@ -1,9 +1,12 @@
 # encoding: utf-8
 require "rubygems"
 
+$:.unshift File.expand_path(File.dirname(__FILE__) + '/lib')
+require "nutils"
+
 Gem::Specification.new do |spec|
   spec.name = "nutils"
-  spec.version = "0.5.0"
+  spec.version = Nutils::VERSION
   spec.summary = "A set of utilities for Nanoc3."
   spec.description = "Nutils is a set of utilities like filters, data_sources and helpers for Nanoc3."
   spec.required_ruby_version = ">= 1.8.7"
@@ -13,8 +16,8 @@ Gem::Specification.new do |spec|
   
   # spec.test_file = "tests/test_nutils.rb"
 
-  spec.files = Dir["lib/nutils/**/*"]
-  spec.require_paths = ["lib/nutils"]
+  spec.files = Dir["lib/nutils/**/*"] + ["lib/nutils.rb"]
+  # spec.require_paths = ["lib/nutils"]
 
   spec.has_rdoc = "yard"
   spec.rdoc_options = ["--main", "README"]

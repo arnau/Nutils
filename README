@@ -2,99 +2,15 @@
 
 A set of utilities for Nanoc3.
 
-
 == Filters
 
-  
-=== svg_to_png (0.2.0)
-This filter converts an SVG to PNG.
-
-Tested in Mac OS X 10.6, Ruby 1.8.7, Nanoc 3.1.6 and with Batik 1.7.
-
-    
-==== Parameters
-
-      
-[+height+] The height of the result PNG. Mask for the `KEY_HEIGHT` key.
-      
-[+width+] The width of the result PNG. Mask for the `KEY_WIDTH` key.
-      
-[+background_color+] The background color of the result PNG. Mask for the `KEY_BACKGROUND_COLOR` key.
-      
-[+dpi+] This parameter lets you use the pixel to millimeter conversion factor. This factor is used to determine how units are converted into pixels. Mask for the `KEY_PIXEL_TO_MM` key.
-      
-    
-
-    
-
-    
-==== Contributors
-        
-* Arnau Siches <arnau.siches@gmail.com>
-        
-* Choan Gálvez
-        
-    
-
-  
-=== beautify (0.5.0)
-This filter retabs HTML code.
-
-Tested in Mac OS X 10.6, Ruby 1.8.7 and Nanoc 3.1.6.
-
-    
-
-    
-
-    
-==== Contributors
-        
-* Arnau Siches <arnau.siches@gmail.com>
-        
-* Choan Gálvez
-        
-    
-
-  
-
-
+* *beautify* Retabs HTML code. Tested in Mac OS X 10.6, Ruby 1.8.7 and Nanoc 3.1.6.
+* *sprockets* Runs the content through [Sprockets](http://getsprockets.org)
+* *svg_to_png* Converts an SVG to PNG. Tested in Mac OS X 10.6, Ruby 1.8.7, Nanoc 3.1.6 and Batik 1.7.
+* *yuicompressor* Compress the content with [YUI Compressor](http://developer.yahoo.com/yui/compressor/). Tested in Mac OS X 10.6, Ruby 1.8.7, Nanoc 3.1.6 and yui-compressor 0.9.1.
 
 == Data Sources
-  
-=== filesystem_customizable
-This data source allows an array for source directories and for layout directories. Inherits from +Nanoc3::DataSources::FilesystemUnified+
-
-Tested in Mac OS X 10.6, Ruby 1.8.7 and Nanoc 3.1.6.
-
-
-    
-==== Parameters
-      
-[+layout_dir+] Array of layout directory names.
-      
-[+source_dir+] Array of source directory names.
-      
-    
-
-    
-==== Example
-  data_sources:
-  -
-    type: filesystem_customizable
-    config:
-      source_dir: ["src", "content"]
-      layout_dir: ["layouts"]
-
-    
-    
-==== Contributors
-        
-* Arnau Siches <arnau.siches@gmail.com>
-        
-    
-
-  
-
+* *filesystem_customizable* Allows an array for source directories and for layout directories.
 
 == Contact
 You can reach me at <arnau.siches@gmail.com>.

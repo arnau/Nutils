@@ -1,5 +1,12 @@
 module Nutils
   module Filters
+
+    # @author Arnau Siches
+    # @author Choan Gálvez
+    #
+    # @version 0.2.0
+    #
+    # @note Requires «rjb»
     class SvgToPng < Nanoc3::Filter
       
       identifier :svg_to_png
@@ -19,17 +26,6 @@ module Nutils
         @color = Rjb::import("java.awt.Color")
         @@_initialized = true
         super
-      end
-
-      # Converts an hexadecimal number with the format +#FC0+ or +#FFCC00+ to its integer representation.
-      # 
-      # @param [String] input The hexadecimal number.
-      # 
-      # @return [Integer] The corresponding integer.
-      def hex2int(input)
-        hexnum = input.delete("#")
-        raise ArgumentError, "Got #{input}. Hexadecimal number must have the form #FC0 or #FFCC00." unless (hexnum.length == 3 or hexnum.length == 6)
-        (hexnum.length == 3) ? hexnum.map { |i| i + i }.to_s.hex : hexnum.hex
       end
 
       # Runs the content through [Batik](http://xmlgraphics.apache.org/batik/).
@@ -82,7 +78,17 @@ module Nutils
 
         ostream.flush()
         ostream.close()
+      end
 
+      # Converts an hexadecimal number with the format +#FC0+ or +#FFCC00+ to its integer representation.
+      # 
+      # @param [String] input The hexadecimal number.
+      # 
+      # @return [Integer] The corresponding integer.
+      def hex2int(input)
+        hexnum = input.delete("#")
+        raise ArgumentError, "Got #{input}. Hexadecimal number must have the form #FC0 or #FFCC00." unless (hexnum.length == 3 or hexnum.length == 6)
+        (hexnum.length == 3) ? hexnum.map { |i| i + i }.to_s.hex : hexnum.hex
       end
 
     end
