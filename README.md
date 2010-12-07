@@ -12,5 +12,5 @@ A set of utilities for Nanoc3.
 ## Data Sources
 * **filesystem_customizable** Allows an array for source directories and for layout directories.
 
-== Contact
+## Contact
 You can reach me at <arnau.siches@gmail.com>.
