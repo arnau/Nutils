@@ -7,7 +7,6 @@ module Nutils
     #
     # The +filesystem_customizable+ data source allows an array for source 
     # directories and for layout directories.
-    # Inherits from +Nanoc3::DataSources::FilesystemUnified+fromstores.
     #
     # @example config.yaml excerpt
     #   data_sources:
