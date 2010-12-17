@@ -7,7 +7,7 @@ module Nutils
 
     ::Nanoc3::Filter.register "::Nutils::Filters::Beautify", :beautify
     ::Nanoc3::Filter.register "::Nutils::Filters::Sprockets", :sprockets
-    ::Nanoc3::Filter.register "::Nutils::Filters::Svg2Png", :svg2png
+    ::Nanoc3::Filter.register "::Nutils::Filters::Svg2Png", :svg_to_png
     ::Nanoc3::Filter.register "::Nutils::Filters::YuiCompressor", :yuicompressor
   end
 end
