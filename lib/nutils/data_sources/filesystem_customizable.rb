@@ -3,7 +3,7 @@ module Nutils
 
     # @author Arnau Siches
     #
-    # @version 1.0.0
+    # @version 1.1.0
     #
     # The +filesystem_customizable+ data source allows an array for source 
     # directories and for layout directories.
