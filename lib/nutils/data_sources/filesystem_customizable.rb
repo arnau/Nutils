@@ -34,6 +34,16 @@ module Nutils
           load_objects(dir, 'layout', Nanoc3::Layout)
         end.flatten
       end
+
+      def up
+        @dtstart = Time.now
+      end
+      def down
+        @dtend = Time.now
+        puts "Data Loaded in #{format('%.2f', @dtend - @dtstart)}s."
+      end
+
+
     end
   end
 end
