@@ -33,6 +33,15 @@ route '/beautify/' do
   "/filters" + item.identifier.chop + ".html"
 end
 
+compile %r{^/sprockets/[^_]+$} do
+  filter 'sprockets', :load_path => ["src/filters/sprockets/partials"]
+  filter 'yuicompressor'
+end
+route %r{^/sprockets/[^_]+$} do
+  "/filters" + item.identifier.chop + ".js"
+end
+
+
 
 compile '*' do
   puts "Silented: #{item.identifier}"
