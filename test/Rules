@@ -1,0 +1,33 @@
+#!/usr/bin/env ruby
+
+# 
+# Data sources
+compile '/filesystem_customizable/'  do
+  filter 'erb'
+  layout 'default'
+end
+route '/filesystem_customizable/'  do
+  item.identifier.chop + ".html"
+end
+
+# 
+# Filters
+compile '/svg2png/wolf/'  do
+  filter 'svg_to_png', {
+    :background_color => "#000",
+    :width => 600
+  }
+end
+compile '/svg2png/*'  do
+  filter 'svg_to_png'
+end
+route '/svg2png/*'  do
+  item.identifier.chop + ".png"
+end
+
+
+compile '*' do
+  puts "Silented: #{item.identifier}"
+end
+route '*' do;end
+layout '*', :erb

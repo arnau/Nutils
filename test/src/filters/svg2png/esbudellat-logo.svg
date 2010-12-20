@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="370" height="285" id="esbudellat-logo">
+  <g id="layer1">
+    <rect
+       width="300"
+       height="140"
+       x="35"
+       y="110"
+       style="fill:none;fill-rule:evenodd;stroke:black;stroke-width:50;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="b" />
+    <path
+       d="M 10,35 L 360,35"
+       style="stroke:black;stroke-width:50;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1"
+       id="a" />
+  </g>
+</svg>
