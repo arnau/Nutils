@@ -61,7 +61,7 @@ module Nutils
         t.addTranscodingHint(@pngTranscoder.KEY_WIDTH, @float.new(opts[:width])) if opts[:width]
         t.addTranscodingHint(@pngTranscoder.KEY_HEIGHT, @float.new(opts[:height])) if opts[:height]
         t.addTranscodingHint(@pngTranscoder.KEY_PIXEL_TO_MM, @float.new(254 / opts[:dpi])) if opts[:dpi]
-        t.addTranscodingHint(@pngTranscoder.KEY_BACKGROUND_COLOR, @color.new(hex2int(opts[:background_color]))) if opts[:background_color]
+        t.addTranscodingHint(@pngTranscoder.KEY_BACKGROUND_COLOR, @color.new(hex2int(opts[:background_color]))) if opts[:background_color] and opts[:background_color] != 'transparent'
         # t.addTranscodingHint(@pngTranscoder.KEY_BACKGROUND_COLOR, @color.decode('#FC0'))
 
         tempfile = Tempfile.new(filename.gsub(/[^a-zA-Z0-9]/, '-'), ".")
