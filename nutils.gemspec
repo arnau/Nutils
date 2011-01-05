@@ -27,5 +27,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency "yui-compressor", ">= 0.9.1"
   spec.add_dependency "htmlbeautifier"
   spec.add_dependency "sprockets"
+  spec.add_dependency "rmagick"
 
 end
