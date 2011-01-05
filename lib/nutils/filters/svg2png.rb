@@ -4,7 +4,7 @@ module Nutils
     # @author Arnau Siches
     # @author Choan Gálvez
     #
-    # @version 0.2.0
+    # @version 0.3.0
     #
     # @note Requires «rjb»
     class SvgToPng < Nanoc3::Filter
@@ -28,24 +28,31 @@ module Nutils
         super
       end
 
-      # Runs the content through [Batik](http://xmlgraphics.apache.org/batik/).
+      # Runs the content through {http://xmlgraphics.apache.org/batik/ Batik}.
       #
       # @param [String] content The content to filter.
       #
       # @option params [String] :background_color (nil) The background color with the 
       #   form +#FFCC00+ or +FC0+ of the result. Mask for the 
-      #   +KEY_BACKGROUND_COLOR+ key.
+      #   {http://xmlgraphics.apache.org/batik/javadoc/org/apache/batik/transcoder/image/ImageTranscoder.html#KEY_BACKGROUND_COLOR +KEY_BACKGROUND_COLOR+} key.
       #
       # @option params [Integer] :dpi (72) This parameter lets you use the pixel
       #   to millimeter conversion factor.
       #   This factor is used to determine how units are converted into pixels. 
-      #   Mask for the +KEY_PIXEL_TO_MM+ key.
+      #   Mask for the {http://xmlgraphics.apache.org/batik/javadoc/org/apache/batik/transcoder/SVGAbstractTranscoder.html#KEY_PIXEL_TO_MM +KEY_PIXEL_TO_MM+} key.
+      #
+      # @option params [Integer] :depth (nil) The color bit depth (i.e. 1, 2, 4, 8).
+      #   The resultant PNG will be an indexed PNG with color bit depth specified.
+      #   The height of the result. Mask for the {http://xmlgraphics.apache.org/batik/javadoc/org/apache/batik/transcoder/image/PNGTranscoder.html#KEY_INDEXED +KEY_INDEXED+} key.
+      #
+      # @option params [Float] :gamma (0) The gamma correction of the result. 
+      #   Mask for the {http://xmlgraphics.apache.org/batik/javadoc/org/apache/batik/transcoder/image/PNGTranscoder.html#KEY_GAMMA +KEY_GAMMA+} key.
       #
       # @option params [Integer] :heigth (nil) The height of the result. Mask for the
-      #   +KEY_HEIGHT+ key.
+      #   {http://xmlgraphics.apache.org/batik/javadoc/org/apache/batik/transcoder/SVGAbstractTranscoder.html#KEY_HEIGHT +KEY_HEIGHT+} key.
       #
       # @option params [Integer] :width (nil) The width of the result. Mask for the
-      #   +KEY_WIDTH+ key.
+      #   {http://xmlgraphics.apache.org/batik/javadoc/org/apache/batik/transcoder/SVGAbstractTranscoder.html#KEY_WIDTH +KEY_WIDTH+} key.
       #
       # @return [String] The filtered content.
       def run(content, params = {})
@@ -56,6 +63,8 @@ module Nutils
           :dpi => 72,
           :height => nil,
           :width => nil,
+          :gamma => 0,
+          :depth => nil,
         }.merge(params)
 
         t.addTranscodingHint(@pngTranscoder.KEY_WIDTH, @float.new(opts[:width])) if opts[:width]
@@ -63,6 +72,10 @@ module Nutils
         t.addTranscodingHint(@pngTranscoder.KEY_PIXEL_TO_MM, @float.new(254 / opts[:dpi])) if opts[:dpi]
         t.addTranscodingHint(@pngTranscoder.KEY_BACKGROUND_COLOR, @color.new(hex2int(opts[:background_color]))) if opts[:background_color] and opts[:background_color] != 'transparent'
         # t.addTranscodingHint(@pngTranscoder.KEY_BACKGROUND_COLOR, @color.decode('#FC0'))
+
+        t.addTranscodingHint(@pngTranscoder.KEY_GAMMA, @float.new(opts[:gamma]))
+        t.addTranscodingHint(@pngTranscoder.KEY_INDEXED, @integer.new(opts[:depth])) if opts[:depth]
+
 
         tempfile = Tempfile.new(filename.gsub(/[^a-zA-Z0-9]/, '-'), ".")
         temppath = tempfile.path
@@ -80,6 +93,7 @@ module Nutils
         ostream.close()
       end
 
+      private
       # Converts an hexadecimal number with the format +#FC0+ or +#FFCC00+ to its integer representation.
       # 
       # @param [String] input The hexadecimal number.
