@@ -6,11 +6,10 @@ module Nutils
     # @version 0.1.0
     #
     # @note Requires «RMagick»
-    class RMagick < Nanoc3::Filter
+    class Crop < Nanoc3::Filter
       
       identifier :crop
       type :binary
-
 
       # Runs the content through {http://www.simplesystems.org/RMagick/doc/image1.html#crop RMagick#crop}.
       #

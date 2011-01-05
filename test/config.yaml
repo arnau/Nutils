@@ -6,10 +6,10 @@ data_sources:
   -
     type: filesystem_customizable
     config:
-      source_dir: ["src/data_sources"]
+      source_dir: ["src/data_sources", "src/filters"]
       layout_dir: ["layouts"]
-  -
-    type: filesystem_customizable
-    config:
-      source_dir: ["src/filters"]
-      layout_dir: ["layouts"]
+  # -
+  #   type: filesystem_customizable
+  #   config:
+  #     source_dir: ["src/filters"]
+  #     layout_dir: ["layouts"]

@@ -19,14 +19,25 @@ compile '/svg2png/wolf/' do
   }
 end
 compile '/svg2png/*' do
-  filter 'svg_to_png'
+  filter :svg_to_png
 end
 route '/svg2png/*' do
   "/filters" + item.identifier.chop + ".png"
 end
 
+compile '/crop/*' do
+  filter :crop,
+         :x => 0,
+         :y => 0,
+         :width => "image.columns - 300",
+         :height => "image.rows - 400"
+end
+route '/crop/*' do
+  "/filters" + item.identifier.chop + '.' + item[:extension]
+end
+
 compile '/beautify/' do
-  filter 'beautify'
+  filter :beautify
   layout 'default'
 end
 route '/beautify/' do
@@ -34,8 +45,9 @@ route '/beautify/' do
 end
 
 compile %r{^/sprockets/[^_]+$} do
-  filter 'sprockets', :load_path => ["src/filters/sprockets/partials"]
-  filter 'yuicompressor'
+  filter :sprockets, 
+         :load_path => ["src/filters/sprockets/partials"]
+  filter :yuicompressor
 end
 route %r{^/sprockets/[^_]+$} do
   "/filters" + item.identifier.chop + ".js"
