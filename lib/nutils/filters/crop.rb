@@ -3,7 +3,7 @@ module Nutils
 
     # @author Arnau Siches
     #
-    # @version 0.1.0
+    # @version 0.1.1
     #
     # @note Requires «RMagick»
     class Crop < Nanoc3::Filter
@@ -37,8 +37,8 @@ module Nutils
 
         image = Magick::ImageList.new filename
 
-        width = eval(opts[:width])
-        height = eval(opts[:height])
+        width = eval(opts[:width].to_s)
+        height = eval(opts[:height].to_s)
 
         image.crop(opts[:x], opts[:y], width, height).write output_filename
 
