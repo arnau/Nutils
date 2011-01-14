@@ -1,7 +1,7 @@
 # encoding: utf-8
 require "rubygems"
 
-$:.unshift File.expand_path(File.dirname(__FILE__) + '/lib')
+$:.unshift File.expand_path(File.dirname(__FILE__) + "/lib")
 require "nutils"
 
 Gem::Specification.new do |spec|
@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
 
   spec.has_rdoc = "yard"
   spec.rdoc_options = ["--main", "README.md"]
-  spec.extra_rdoc_files = ["README.md"]
+  spec.extra_rdoc_files = ["README.md", "LICENSE"]
 
   spec.add_dependency "nanoc3", ">= 3.1.2"
   spec.add_dependency "rjb", ">= 1.2.9"
