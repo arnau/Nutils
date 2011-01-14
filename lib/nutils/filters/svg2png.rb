@@ -4,7 +4,7 @@ module Nutils
     # @author Arnau Siches
     # @author Choan Gálvez
     #
-    # @version 0.3.0
+    # @version 0.3.1
     #
     # @note Requires «rjb»
     class SvgToPng < Nanoc3::Filter
@@ -77,7 +77,7 @@ module Nutils
         t.addTranscodingHint(@pngTranscoder.KEY_INDEXED, @integer.new(opts[:depth])) if opts[:depth]
 
 
-        tempfile = Tempfile.new(filename.gsub(/[^a-zA-Z0-9]/, '-'), ".")
+        tempfile = Tempfile.new(filename.gsub(/[^a-zA-Z0-9]/, '-'), 'tmp')
         temppath = tempfile.path
         tempfile.puts content
         tempfile.close
