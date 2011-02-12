@@ -23,10 +23,10 @@ Gem::Specification.new do |spec|
   spec.extra_rdoc_files = ["README.md", "LICENSE"]
 
   spec.add_dependency "nanoc3", ">= 3.1.2"
-  spec.add_dependency "rjb", ">= 1.2.9"
-  spec.add_dependency "yui-compressor", ">= 0.9.1"
-  spec.add_dependency "htmlbeautifier"
-  spec.add_dependency "sprockets"
-  spec.add_dependency "rmagick"
+  # spec.add_dependency "rjb", ">= 1.2.9"
+  # spec.add_dependency "yui-compressor", ">= 0.9.1"
+  # spec.add_dependency "htmlbeautifier"
+  # spec.add_dependency "sprockets"
+  # spec.add_dependency "rmagick"
 
 end
