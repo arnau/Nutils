@@ -3,7 +3,7 @@
 module Nutils
 
   # The current nutils version.
-  VERSION = "0.6.4"
+  VERSION = "0.7.0"
 
 end
 
@@ -11,5 +11,7 @@ end
 require "nanoc3"
 
 # Load nutils
+require "nutils/base"
 require "nutils/data_sources"
 require "nutils/filters"
+require "nutils/helpers"

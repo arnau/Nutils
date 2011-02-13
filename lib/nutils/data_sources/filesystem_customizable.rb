@@ -8,7 +8,7 @@ module Nutils
     # The +filesystem_customizable+ data source allows an array for source 
     # directories and for layout directories.
     #
-    # @example config.yaml excerpt
+    # @example Config.yaml excerpt
     #   data_sources:
     #     -
     #       type: filesystem_customizable

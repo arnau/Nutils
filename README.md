@@ -13,5 +13,8 @@ A set of utilities for Nanoc3.
 ## Data Sources
 * **filesystem_customizable** Allows an array for source directories and for layout directories.
 
+## Helpers
+* **load_rules** Allows to use multiple files with Nanoc rules.
+
 ## Contact
 You can reach me at <arnau.siches@gmail.com>.
