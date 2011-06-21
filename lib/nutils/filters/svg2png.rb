@@ -8,14 +8,18 @@ module Nutils
     #
     # @note Requires «rjb»
     class SvgToPng < Nanoc3::Filter
-      
+      require 'rjb'
+      require 'tempfile'
+      require 'fileutils'
+      include FileUtils
+
       identifier :svg_to_png
       type :text => :binary
       
       def initialize(hash = {})
-        require "rjb"
-        require "tempfile"
-
+        
+        mkdir_p 'tmp'
+        
         Rjb::load(classpath = '.', [ '-Djava.awt.headless=true', '-Dapple.awt.graphics.UseQuartz=false' ])
         @fileOutputStream = Rjb::import("java.io.FileOutputStream")
         @pngTranscoder = Rjb::import("org.apache.batik.transcoder.image.PNGTranscoder")
