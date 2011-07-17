@@ -3,7 +3,7 @@ module Nutils
 
     # @author Arnau Siches
     #
-    # @version 1.1.0
+    # @version 1.1.1
     #
     # The +filesystem_customizable+ data source allows an array for source 
     # directories and for layout directories.
@@ -22,20 +22,22 @@ module Nutils
 
       def setup
         # Create directories
-        (config[:source_dir] + config[:layout_dir]).each { |dir| FileUtils.mkdir_p dir }
+        (@sources + @layouts).each { |dir| FileUtils.mkdir_p dir }
       end
       def items
-        config[:source_dir].map do |dir|
+        @sources.map do |dir|
           load_objects(dir, 'item', Nanoc3::Item)
         end.flatten
       end
       def layouts
-        config[:layout_dir].map do |dir|
+        @layouts.map do |dir|
           load_objects(dir, 'layout', Nanoc3::Layout)
         end.flatten
       end
 
       def up
+        @sources = config[:source_dir] || ['content']
+        @layouts = config[:layout_dir] || ['layouts']
         @dtstart = Time.now
       end
       def down
