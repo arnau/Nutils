@@ -46,7 +46,8 @@ end
 
 compile %r{^/sprockets/[^_]+$} do
   filter :sprockets, 
-         :load_path => ["src/filters/sprockets/partials"]
+         :load_path => ["src/filters/sprockets/partials"],
+         :strip_comments => false
   filter :yuicompressor
 end
 route %r{^/sprockets/[^_]+$} do

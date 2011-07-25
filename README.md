@@ -1,6 +1,6 @@
 # Nutils Readme
 
-A set of utilities for Nanoc3.
+A set of utilities for nanoc 3.
 
 ## Filters
 
@@ -9,13 +9,13 @@ A set of utilities for Nanoc3.
 * **sprockets** Runs the content through [Sprockets](http://getsprockets.org)
 * **svg_to_png** Converts an SVG to PNG. Tested in Mac OS X 10.6, Ruby 1.8.7, Nanoc 3.1.6 and Batik 1.7.
 * **yuicompressor** Compress the content with [YUI Compressor](http://developer.yahoo.com/yui/compressor/). Tested in Mac OS X 10.6, Ruby 1.8.7, Nanoc 3.1.6 and yui-compressor 0.9.1.
-* **zass** Compiles the content using [Sass](http://sass-lang.com/) 3.1. Tested in Mac OS X 10.6.7, Ruby 1.8.7, Nanoc 3.1.6 and sass 3.1.
+* **zass** Deprecated. Use the **sass** filter from nanoc 3.1.9+
 
 ## Data Sources
 * **filesystem_customizable** Allows an array for source directories and for layout directories.
 
 ## Helpers
-* **load_rules** Allows to use multiple files with Nanoc rules.
+* **load_rules** Allows to use multiple files with Nanoc rules. It works with nanoc 3.1 and 3.2.
 
 ## Contact
 You can reach me at <arnau.siches@gmail.com>.
