@@ -16,6 +16,9 @@ module Nutils
       #
       # @return [String] The filtered content
       def run(content, params={})
+
+        puts "You should use the Sass filter from nanoc 3.1.9 or later. This Sass filter (:zass) is deprecated."
+
         # Get options
         options = params.dup
         sass_filename = options[:filename] || (@item && @item[:content_filename])
