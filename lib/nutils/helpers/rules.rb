@@ -25,14 +25,14 @@ module Nutils
       # 
       # @return [Proc]
       def load_rules(filepath)
-        # Monkey-patch to obtain the site configuration since nanoc 3.2
-        if Gem.loaded_specs["nanoc3"].version >= Gem::Version.create('3.1') and  Gem.loaded_specs["nanoc3"].version < Gem::Version.create('3.2')
-          rules_dir = @site.config[:rules_dir] || ['.']
-        elsif Gem.loaded_specs["nanoc3"].version >= Gem::Version.create('3.2')
-          rules_dir = @rules_collection.instance_variable_get(:@compiler).instance_variable_get(:@site).config[:rules_dir] || ['.']
+        raise "You should upgrade to nanoc 3.2.1 to run the load_rules helper properly" if Gem.loaded_specs["nanoc3"].version == Gem::Version.create('3.2')
+
+        rules_dir = if Gem.loaded_specs["nanoc3"].version >= Gem::Version.create('3.1') and Gem.loaded_specs["nanoc3"].version < Gem::Version.create('3.2')
+          (@site.config[:rules_dir] || ['.']) 
         else
-          raise "The load_rules helper needs nanoc 3.1 or higher."
+          @config[:rules_dir] || ['.']
         end
+        
 
 
         path = rules_dir.map do |dir|
