@@ -3,3 +3,4 @@ my/
 tmp/
 output/
 *.gem
+.sass-cache
