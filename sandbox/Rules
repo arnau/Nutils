@@ -48,7 +48,7 @@ compile %r{^/sprockets/[^_]+$} do
   filter :sprockets, 
          :load_path => ["src/filters/sprockets/partials"],
          :strip_comments => false
-  filter :yuicompressor
+  filter :yuicompressor, :type => :js
 end
 route %r{^/sprockets/[^_]+$} do
   "/filters" + item.identifier.chop + ".js"
