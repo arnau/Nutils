@@ -6,7 +6,7 @@ module Nutils
     #
     # @version 0.3.1
     #
-    # @note Requires «rjb»
+    # @note Requires «rjb» and «batik»
     class SvgToPng < Nanoc3::Filter
       require 'rjb'
       require 'tempfile'
@@ -33,6 +33,7 @@ module Nutils
       end
 
       # Runs the content through {http://xmlgraphics.apache.org/batik/ Batik}.
+      # Batik must be in the `CLASSPATH`.
       #
       # @param [String] content The content to filter.
       #
