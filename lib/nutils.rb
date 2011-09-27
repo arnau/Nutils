@@ -4,7 +4,6 @@ module Nutils
 
   # The current nutils version.
   VERSION = '1.0.0'
-
 end
 
 # Load requirements

@@ -26,6 +26,8 @@ end
 $LOAD_PATH.unshift(File.expand_path(File.dirname(__FILE__) + '/../lib'))
 require 'nutils'
 
+BASE = File.dirname(__FILE__)
+
 # Load miscellaneous requirements
 require 'stringio'
 
@@ -118,10 +120,10 @@ EOS
     GC.start
 
     # Go quiet
-    unless ENV['QUIET'] == 'false'
-      $stdout = StringIO.new
-      $stderr = StringIO.new
-    end
+    # unless ENV['QUIET'] == 'false'
+    #   $stdout = StringIO.new
+    #   $stderr = StringIO.new
+    # end
 
     # Enter tmp
     FileUtils.mkdir_p('tmp')
