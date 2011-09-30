@@ -13,9 +13,6 @@ module Nutils
       #
       # @param [String] content The content to filter.
       #
-      # @todo Use the content to build a Sprocket Asset instead of just get the
-      #   `@item[:content_filename]`.
-      #
       # @return [String] The filtered content.
       def run(content, params={})
         require 'sprockets'
