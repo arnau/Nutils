@@ -13,18 +13,11 @@ module Nutils
       #
       # @param [String] content The content to filter.
       #
-      # @todo Use the content to build a Sprocket Asset instead of just get the
-      #   `@item[:content_filename]`.
-      #
       # @return [String] The filtered content.
       def run(content, params={})
         require 'sprockets'
-        Gem.loaded_specs['sprockets'].version < Gem::Version.create('2.0') ? backwards(content, params) : default(content, params)
-      end
-      
-      private
-      
-      def default(content, params)
+        raise "Sprockets should be 2.0.0 or higher" if Gem.loaded_specs['sprockets'].version < Gem::Version.create('2.0')
+        
         filename  = Pathname.new(@item[:content_filename])
         
         # Create a temp file with the content received to give the desired
@@ -56,31 +49,6 @@ module Nutils
         
         # Output compiled asset
         main_asset.to_s
-      ensure
-        tmp_filename.delete if tmp_filename.exist?
-      end
-      
-      def backwards(content, params)
-        puts "You are using Sprockets 1.0.0. It's strongly recommended you upgrade to Sprockets >= 2.0.0"
-        puts "Nutils 1.0.0 will *not* support Sprockets 1.0.0"
-        
-        filename = Pathname.new(@item[:content_filename])
-        
-        # Create a temp file with the content received to give the desired
-        # content to Sprockets on the same context.
-        tmp_filename = filename.dirname + ('tmp_' + filename.basename.to_s)
-        tmp_filename.open('w') { |io| io.puts content }
-        
-        load_path = params[:load_path] || []
-        load_path << tmp_filename.dirname.realpath.to_s
-        params.merge!({
-          :load_path => load_path,
-          :source_files => [tmp_filename.realpath.to_s]
-        })
-        
-        secretary = ::Sprockets::Secretary.new(params)
-        secretary.install_assets if params[:asset_root]
-        secretary.concatenation.to_s
       ensure
         tmp_filename.delete if tmp_filename.exist?
       end
