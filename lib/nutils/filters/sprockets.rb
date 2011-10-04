@@ -38,9 +38,14 @@ module Nutils
         # Get the Sprockets BundledAsset object for the content
         main_asset = env.find_asset(tmp_filename.realpath)
         
+        # Select just the possible items that can be dependencies
+        possible_items = @items.select do |i|
+          load_path.find { |p| Pathname.new(p).realpath.to_s == Pathname.new(i[:content_filename]).dirname.realpath.to_s }
+        end
+        
         # Get Nanoc::Item equivalent for each dependence managed by Sprockets
         dependencies = main_asset.dependencies.inject([]) do |dep, asset|
-          item = @items.find { |i| asset.pathname == Pathname.new(i[:content_filename]).realpath }
+          item = possible_items.find { |i| asset.pathname == Pathname.new(i[:content_filename]).realpath }
           dep << item unless item.nil?
           dep
         end
