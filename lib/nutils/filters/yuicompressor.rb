@@ -3,7 +3,7 @@ module Nutils
 
     # @author Arnau Siches
     #
-    # @version 1.2.0
+    # @version 1.2.1
     #
     # @note Requires «yui-compressor»
     class YuiCompressor < Nanoc3::Filter
@@ -24,7 +24,9 @@ module Nutils
         require "yui/compressor"
         if (params[:type] == :css)
           compressor = ::YUI::CssCompressor.new
-        elsif (params[:type] == :js)
+        else
+          puts "Remember to add a params[:type] to your filter declaration to ensure straight compatibility with YUICompressor" unless params.has_key?(:type)
+          # elsif (params[:type] == :js)
           # It fallbacks to `:type => :js` because backwards compatibility w/
           # prior versions of the filter.
           compressor = ::YUI::JavaScriptCompressor.new
