@@ -9,6 +9,7 @@ A set of utilities for nanoc 3. Tested in Mac OS X 10.6, Ruby 1.8.7, 1.92 and na
 * **sprockets** Runs the content through [Sprockets](http://getsprockets.org). Sprockets 2.
 * **svg_to_png** Converts an SVG to PNG. Batik 1.7.
 * **yuicompressor** Compress the content with [YUI Compressor](http://developer.yahoo.com/yui/compressor/). yui-compressor 0.9.1.
+* **sass** Importer `Nutils::SassImporters::NanocItem` which deals with `@import /nanoc/identifier/` instead of real filenames.
 
 ## Data Sources
 * **filesystem_customizable** Allows an array for source directories and for layout directories.
