@@ -28,6 +28,8 @@ module Nutils
           # It fallbacks to `:type => :js` because backwards compatibility w/
           # prior versions of the filter.
           compressor = ::YUI::JavaScriptCompressor.new
+        else
+          raise "You should define a params[:type] either :js or :css"
         end
 
         compressor.compress(content)
