@@ -39,7 +39,7 @@ module Nutils
         main_asset = env.find_asset(tmp_filename.realpath)
         
         # Select just the possible items that can be dependencies
-        possible_items = @items.select do |i|
+        possible_items = @items.reject { |i| i[:content_filename].nil? }.select do |i|
           load_path.find { |p| Pathname.new(p).realpath.to_s == Pathname.new(i[:content_filename]).dirname.realpath.to_s }
         end
         
