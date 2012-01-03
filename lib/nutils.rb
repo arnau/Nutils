@@ -3,7 +3,7 @@
 module Nutils
 
   # The current nutils version.
-  VERSION = '0.11.2'
+  VERSION = '0.11.3'
 
 end
 

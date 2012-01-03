@@ -6,6 +6,7 @@ module Nutils
     #
     # @note Requires «sprockets»
     class SprocketWheel < Nanoc3::Filter
+      require 'pathname'
       identifier :sprockets
       type :text
       # Concatenate the Javascript, CoffeeScript or Sass content through [Sprockets](http://getsprockets.org).
@@ -22,7 +23,7 @@ module Nutils
       private
       
       def default(content, params)
-        filename  = Pathname.new(@item[:content_filename])
+        filename  = ::Pathname.new(@item[:content_filename])
         
         # Create a temp file with the content received to give the desired
         # content to Sprockets on the same context.
@@ -44,12 +45,12 @@ module Nutils
         
         # Select just the possible items that can be dependencies
         possible_items = @items.reject { |i| i[:content_filename].nil? }.select do |i|
-          load_path.find { |p| Pathname.new(p).realpath.to_s == Pathname.new(i[:content_filename]).dirname.realpath.to_s }
+          load_path.find { |p| ::Pathname.new(p).realpath.to_s == ::Pathname.new(i[:content_filename]).dirname.realpath.to_s }
         end
         
         # Get Nanoc::Item equivalent for each dependence managed by Sprockets
         dependencies = main_asset.dependencies.inject([]) do |dep, asset|
-          item = possible_items.find { |i| asset.pathname == Pathname.new(i[:content_filename]).realpath }
+          item = possible_items.find { |i| asset.pathname == ::Pathname.new(i[:content_filename]).realpath }
           dep << item unless item.nil?
           dep
         end
@@ -66,7 +67,7 @@ module Nutils
         puts "You are using Sprockets 1.0.0. It's strongly recommended you upgrade to Sprockets >= 2.0.0"
         puts "Nutils 1.0.0 will *not* support Sprockets 1.0.0"
         
-        filename = Pathname.new(@item[:content_filename])
+        filename = ::Pathname.new(@item[:content_filename])
         
         # Create a temp file with the content received to give the desired
         # content to Sprockets on the same context.
