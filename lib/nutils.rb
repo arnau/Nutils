@@ -8,7 +8,7 @@ module Nutils
 end
 
 # Load requirements
-require 'nanoc3'
+require 'nanoc'
 
 # Load nutils
 require 'nutils/base'
