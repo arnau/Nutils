@@ -7,7 +7,7 @@ module Nutils
     # @version 0.3.1
     #
     # @note Requires «rjb» and «batik»
-    class SvgToPng < Nanoc3::Filter
+    class SvgToPng < Nanoc::Filter
       require 'rjb'
       require 'tempfile'
       require 'fileutils'

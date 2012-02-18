@@ -16,8 +16,8 @@ module Nutils
     #         source_dir: ["src"]
     #         layout_dir: ["layouts", "other_layouts"]
     #
-    # @see Nanoc3::DataSources::FilesystemUnified
-    class FilesystemCustomizable < Nanoc3::DataSources::FilesystemUnified
+    # @see Nanoc::DataSources::FilesystemUnified
+    class FilesystemCustomizable < Nanoc::DataSources::FilesystemUnified
       identifier :filesystem_customizable
 
       def setup

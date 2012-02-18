@@ -5,7 +5,7 @@ module Nutils
     # @version 3.0.0
     #
     # @note Requires «sprockets»
-    class SprocketWheel < Nanoc3::Filter
+    class SprocketWheel < Nanoc::Filter
       identifier :sprockets
       type :text
       # Concatenate the Javascript, CoffeeScript or Sass content through [Sprockets](http://getsprockets.org).

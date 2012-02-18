@@ -6,7 +6,7 @@ module Nutils
     # @version 0.1.1
     #
     # @note Requires «RMagick»
-    class Crop < Nanoc3::Filter
+    class Crop < Nanoc::Filter
       
       identifier :crop
       type :binary

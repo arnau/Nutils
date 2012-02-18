@@ -9,7 +9,7 @@ module Nutils
     # @note Requires htmlbeautifer
     #
     # @todo Pass parameters to the HtmlBeautifer engine.
-    class Beautify < Nanoc3::Filter
+    class Beautify < Nanoc::Filter
 
       identifier :beautify
       type :text

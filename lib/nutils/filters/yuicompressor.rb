@@ -6,7 +6,7 @@ module Nutils
     # @version 1.2.0
     #
     # @note Requires «yui-compressor»
-    class YuiCompressor < Nanoc3::Filter
+    class YuiCompressor < Nanoc::Filter
       
       identifier :yuicompressor
       type :text

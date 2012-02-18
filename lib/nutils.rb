@@ -3,11 +3,11 @@
 module Nutils
 
   # The current nutils version.
-  VERSION = '1.0.0'
+  VERSION = '1.1.0'
 end
 
 # Load requirements
-require 'nanoc3'
+require 'nanoc'
 
 # Load nutils
 require 'nutils/base'
