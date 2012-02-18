@@ -12,9 +12,9 @@ begin
   require 'minitest/mock'
   require 'mocha'
 
-  require 'nanoc3'
-  require 'nanoc3/cli'
-  require 'nanoc3/tasks'
+  require 'nanoc'
+  require 'nanoc/cli'
+  require 'nanoc/tasks'
 
   require 'tempfile'
 rescue => e
@@ -104,7 +104,7 @@ EOS
 
     # Yield site
     FileUtils.cd(site_name) do
-      yield ::Nanoc3::Site.new('.')
+      yield ::Nanoc::Site.new('.')
     end
   end
 

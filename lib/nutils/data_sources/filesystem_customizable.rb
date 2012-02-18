@@ -26,12 +26,12 @@ module Nutils
       end
       def items
         @sources.map do |dir|
-          load_objects(dir, 'item', Nanoc3::Item)
+          load_objects(dir, 'item', Nanoc::Item)
         end.flatten
       end
       def layouts
         @layouts.map do |dir|
-          load_objects(dir, 'layout', Nanoc3::Layout)
+          load_objects(dir, 'layout', Nanoc::Layout)
         end.flatten
       end
 

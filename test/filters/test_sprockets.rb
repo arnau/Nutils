@@ -11,8 +11,8 @@ class Nutils::Filters::SprocketWheelTest < MiniTest::Unit::TestCase
       foo_path = File.expand_path(File.join BASE, 'fixtures', 'sprockets', 'in', 'partials', 'foo.js')
       raw_content = File.read(path)
       items = [
-        ::Nanoc3::Item.new(raw_content, {:content_filename => path}, '/main/'),
-        ::Nanoc3::Item.new(File.read(foo_path), {:content_filename => foo_path}, '/partials/foo/'),
+        ::Nanoc::Item.new(raw_content, {:content_filename => path}, '/main/'),
+        ::Nanoc::Item.new(File.read(foo_path), {:content_filename => foo_path}, '/partials/foo/'),
       ]
       params = { :item => items[0], :items => items }
       

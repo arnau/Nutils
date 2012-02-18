@@ -25,15 +25,13 @@ module Nutils
       # 
       # @return [Proc]
       def load_rules(filepath)
-        raise "You should upgrade to nanoc 3.2.1 to run the load_rules helper properly" if Gem.loaded_specs["nanoc3"].version == Gem::Version.create('3.2')
+        raise "You should upgrade to nanoc 3.3 to run the load_rules helper properly" if Gem.loaded_specs["nanoc"].version == Gem::Version.create('3.3')
 
-        rules_dir = if Gem.loaded_specs["nanoc3"].version >= Gem::Version.create('3.1') and Gem.loaded_specs["nanoc3"].version < Gem::Version.create('3.2')
+        rules_dir = if Gem.loaded_specs["nanoc"].version >= Gem::Version.create('3.1') and Gem.loaded_specs["nanoc"].version < Gem::Version.create('3.3')
           (@site.config[:rules_dir] || ['.']) 
         else
           @config[:rules_dir] || ['.']
         end
-        
-
 
         path = rules_dir.map do |dir|
           Dir[File.join(dir, filepath)].each { |filename| filename }
