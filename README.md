@@ -1,6 +1,6 @@
 # Nutils Readme
 
-A set of utilities for nanoc 3. Tested in Mac OS X 10.6, Ruby 1.8.7, 1.92 and nanoc 3.2.
+A set of utilities for nanoc 3. Tested in Mac OS X 10.6, Ruby 1.8.7, 1.92 and nanoc 3.3.
 
 ## Filters
 
