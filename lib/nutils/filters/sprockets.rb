@@ -42,7 +42,6 @@ module Nutils
         possible_items = @items.reject { |i| i[:content_filename].nil? }.select do |i|
           load_path.find { |p| Pathname.new(p).realpath.to_s == Pathname.new(i[:content_filename]).dirname.realpath.to_s }
         end
-        
         # Get Nanoc::Item equivalent for each dependence managed by Sprockets
         dependencies = main_asset.dependencies.inject([]) do |dep, asset|
           item = possible_items.find { |i| asset.pathname == Pathname.new(i[:content_filename]).realpath }
