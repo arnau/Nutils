@@ -21,9 +21,5 @@ A set of utilities for nanoc 3. Tested in Mac OS X 10.6, Ruby 1.8.7, 1.92 and na
 * [Choan](https://github.com/choan)
 * [Ximus](https://github.com/ximus)
 
-## Collaborators
-
-* [Ximus](https://github.com/ximus)
-
 ## Contact
 You can reach me at <arnau.siches@gmail.com>.
