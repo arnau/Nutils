@@ -22,7 +22,11 @@ class Nutils::Filters::SprocketWheelTest < MiniTest::Unit::TestCase
 var foo = true;
 var boo = 'look me!';
 var xoo = false;
+
+
 var bar = true;
+
+
 
 function main (argument) {
   // body...
