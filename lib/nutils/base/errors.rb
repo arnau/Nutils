@@ -1,3 +1,4 @@
+# encoding: utf-8
 module Nutils
   module Errors
     
@@ -7,7 +8,7 @@ module Nutils
 
       # @param [String] filename The file name not found.
       def initialize(filename)
-        super("No file found in any directory provided for “#{filename}”".make_compatible_with_env)
+        super("No file found in any directory provided for #{filename}".make_compatible_with_env)
       end
 
     end

@@ -1,3 +1,4 @@
+# encoding: utf-8
 module Nutils
   module DataSources
 
@@ -44,7 +45,6 @@ module Nutils
         @dtend = Time.now
         puts "Data Loaded in #{format('%.2f', @dtend - @dtstart)}s."
       end
-
 
     end
   end
